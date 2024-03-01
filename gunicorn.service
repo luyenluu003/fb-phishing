@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/root
+ExecStart=/usr/local/bin/gunicorn -b 0.0.0.0:5000 server:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
